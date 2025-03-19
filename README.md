@@ -60,7 +60,7 @@ Telegram Weather Bot 🌤
 
 Поддержка
 
-      🔗 Telegram: CatWoolf
+      🔗 Telegram: @CatWoolf
       Предложения и баги: Issues / Pull Requests в GitHub
 
 
