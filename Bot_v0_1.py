@@ -2,19 +2,15 @@ import asyncio
 from aiogram import Bot, Dispatcher, types, F
 from aiogram.filters import Command
 import subprocess
-# from aiogram import types
-# from aiogram.filters import Text
-# import parsing
-# import requests
-# from bs4 import BeautifulSoup
+
+
 
 citys = {
     "Новосибирск": "Новосибирске",
     "Москва": "Москве_(ВДНХ)"
 }
 
-
-version = 'Beta_0.5'
+version = 'Beta_1.1'
 bos = '@CatWoolf'
 dp = Dispatcher()
 
@@ -39,8 +35,6 @@ async def menu_message(message: types.Message):
     ])
     await message.answer('Версия и Cоздатель', reply_markup=kb)
 
-
-#############################
 
 # Функция для чтения данных о погоде из файла
 def read_file():
@@ -73,8 +67,7 @@ async def update_weather(message: types.Message):
 
     await message.answer("Какой город интересует?", reply_markup=kb)
 
-
-    
+ 
 @dp.callback_query(F.data == "Moscow")
 async def moscow_weather(query: types.CallbackQuery):
     await send_weather_info(query, "Москва")
@@ -86,7 +79,7 @@ async def novosibirsk_weather(query: types.CallbackQuery):
     # Запускаем парсер
 async def send_weather_info(qyery: types.CallbackQuery, city: str):
     try:
-        subprocess.run([r"C:\Users\AlexHatteR\Desktop\My_Project\venv\Scripts\python.exe", "parsing.py", city], check=True)  # Замените на ваш файл парсера
+        subprocess.run(["python", "parsing.py", city], check=True)  # Замените на ваш файл парсера
         await asyncio.sleep(1)  # Ждём, пока данные запишутся в файл
 
         # Читаем обновлённые данные
@@ -99,9 +92,6 @@ async def send_weather_info(qyery: types.CallbackQuery, city: str):
     except Exception as e:
         await qyery.message.answer(f"Ошибка запуска парсера: {e}")
 
-
-############################################
-
 #Секретик
 @dp.message(F.text == "Секрет")
 async def sikret_message(message: types.Message):
@@ -109,20 +99,6 @@ async def sikret_message(message: types.Message):
     for _ in range(3):
         await asyncio.sleep(0.5)
         await message.answer('\U0001F4A9')
-
-# #3-я менюшка 
-# @dp.message(F.text == 'обо мне(временное)')
-# async def menu_message(message: types.Message):
-#     kb = types.InlineKeyboardMarkup(inline_keyboard=[
-#         [types.InlineKeyboardButton(text ='небольшое описание меня', callback_data='about_me')]
-#     ])
-#     await message.answer('тут я', reply_markup=kb)
-
-# @dp.callback_query(F.data == 'about_me')
-# async def about_me_callback(callback: types.CallbackQuery):
-#     await callback.message.edit_text('Ну давай знакомиться!\n'
-#                                      'пытаюсь заставить эту машину работать! а вообще интересный человек и собеседник!')
-    
 
 
 #Повторяшка всего тектста без меню
