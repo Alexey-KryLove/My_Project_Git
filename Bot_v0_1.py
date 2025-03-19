@@ -112,7 +112,7 @@ async def echo_message(message: types.Message):
 
 #Запуск бота
 async def main():
-    token = '7978264726:AAFE6JY3mJqKDeVGcUSy4lx1itEnAxIrTxM'
+    token = 'YOU_TOKEN'
     bot = Bot(token)
     await dp.start_polling(bot)
     
