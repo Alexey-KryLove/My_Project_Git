@@ -48,11 +48,6 @@ def get_weather_rp5(url: str):
     else:
         print("Ошибка получения данных о погоде")
 
-# citys = {"Новосибирск":"Новосибирске","Москва":"Москве_(ВДНХ)"}
-
-# city = input("Введите город:")
-
-
 if __name__ == "__main__":
     # URL = f"https://rp5.ru/Погода_в_{citys[city]}"
     get_weather_rp5(url)
