@@ -103,6 +103,6 @@ token = "YOU_TOKEN"
 ## Поддержка
 
 🔗 Telegram: @CatWoolf
-<img src="https://github.com/user-attachments/assets/d88ceb68-70dd-4d52-8e01-bb5a44e5e687" width="150" colot="while" />
+<img src="https://github.com/user-attachments/assets/d88ceb68-70dd-4d52-8e01-bb5a44e5e687" width="90" colot="while" />
 
 
